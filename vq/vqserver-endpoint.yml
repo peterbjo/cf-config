@@ -12,7 +12,7 @@ spring:
 
   jackson.serialization.indent_output: true
 
-  oauth2.resource.userInfoUri: http://localhost:9999/uaa/user
+  oauth2.resource.userInfoUri: http://vqserver-auth.10.244.0.34.xip.io/uaa/user
 
 server:
   port: ${vcap.application.port:9000}

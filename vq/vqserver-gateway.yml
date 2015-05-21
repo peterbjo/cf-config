@@ -6,7 +6,7 @@ zuul:
   routes:
     resource:
       path: /resource/**
-      url: http://localhost:9000
+      url: http://vqserver-endpoint.10.244.0.34.xip.io
     user:
       path: /user/**
       url: http://vqserver-auth.10.244.0.34.xip.io/uaa/user
