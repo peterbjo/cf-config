@@ -6,10 +6,10 @@ zuul:
   routes:
     resource:
       path: /resource/**
-      url: http://vqserver-endpoint.10.244.0.34.xip.io
+      url: {vcap.services.vqserver-endpoint.credentials.uri:http://localhost:9000}
     user:
       path: /user/**
-      url: http://vqserver-auth.10.244.0.34.xip.io/uaa/user
+      url: {vcap.services.vqserver-auth.credentials.uri/uaa/user:http://localhost:9999/uaa/user}
 spring:
   application:
     name: vqserver-gateway
@@ -21,12 +21,12 @@ spring:
         secure: false
         path: /,/**/*.html
     client:
-      accessTokenUri: http://vqserver-auth.10.244.0.34.xip.io/uaa/oauth/token
-      userAuthorizationUri: http://vqserver-auth.10.244.0.34.xip.io/uaa/oauth/authorize
+      accessTokenUri: {vcap.services.vqserver-auth.credentials.uri/uaa/oauth/token:http://localhost:9999/uaa/oauth/token
+      userAuthorizationUri: {vcap.services.vqserver-auth.credentials.uri/uaa/oauth/authorize:http://localhost:9999/uaa/oauth/authorize}
       clientId: acme
       clientSecret: acmesecret
     resource:
-      userInfoUri: http://vqserver-auth.10.244.0.34.xip.io/uaa/user
+      userInfoUri: {vcap.services.vqserver-auth.credentials.uri/uaa/user:http://localhost:9999/uaa/user}
 
 logging:
   level:
