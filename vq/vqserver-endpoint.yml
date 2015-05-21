@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: vqserver-endpoint
+
+  profiles: cloud
+
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/vq
+    username: root
+    password :
+
+  jackson.serialization.indent_output: true
+
+  oauth2.resource.userInfoUri: http://localhost:9999/uaa/user
+
+server:
+  port: ${vcap.application.port:9000}
+logging:
+  level:
+    org: WARN
+#    org.springframework.security: DEBUG
+#    org.springframework.web: DEBUG
+
+quartz:
+  enabled: true
+
+queue.job.frequency: 5000
+

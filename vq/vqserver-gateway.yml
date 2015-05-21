@@ -1,0 +1,35 @@
+#debug:
+security:
+  user:
+    password: password
+zuul:
+  routes:
+    resource:
+      path: /resource/**
+      url: http://localhost:9000
+    user:
+      path: /user/**
+      url: http://vqserver-auth.10.244.0.34.xip.io/uaa/user
+spring:
+  application:
+    name: vqserver-gateway
+
+  profiles: cloud
+  oauth2:
+    sso:
+      home:
+        secure: false
+        path: /,/**/*.html
+    client:
+      accessTokenUri: http://vqserver-auth.10.244.0.34.xip.io/uaa/oauth/token
+      userAuthorizationUri: http://vqserver-auth.10.244.0.34.xip.io/uaa/oauth/authorize
+      clientId: acme
+      clientSecret: acmesecret
+    resource:
+      userInfoUri: http://vqserver-auth.10.244.0.34.xip.io/uaa/user
+
+logging:
+  level:
+    org: WARN
+#    org.springframework.security: DEBUG
+#    org.springframework.web: DEBUG

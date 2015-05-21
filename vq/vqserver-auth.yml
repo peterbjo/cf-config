@@ -1,0 +1,22 @@
+#debug:
+spring:
+  application:
+    name: vqserver-auth
+
+  profiles: cloud
+
+  jackson.serialization.indent_output: true
+
+server:
+  port: ${vcap.application.port:9999}
+  contextPath: /uaa
+
+security:
+  user:
+    password: password
+
+logging:
+  level:
+    org: WARN
+#    springframework:
+#      security: DEBUG
