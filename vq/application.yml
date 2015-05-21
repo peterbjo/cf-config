@@ -1,10 +1,10 @@
-server:
-  port: ${PORT:${SERVER_PORT:0}}
+#server:
+#  port: ${PORT:${SERVER_PORT:0}}
 
-info:
-  id: ${spring.application.name}
+#info:
+#  id: ${spring.application.name}
 
-debug: true
+#debug: true
 
 #eureka:
 #  client:
@@ -12,8 +12,8 @@ debug: true
 #      defaultZone: ${vcap.services.eureka-service.credentials.uri:http://127.0.0.1:8761}/eureka/
 
 ---
-spring:
-  profiles: cloud
+#spring:
+#  profiles: cloud
 #eureka:
 #  instance:
 #    hostname: ${APPLICATION_DOMAIN}
