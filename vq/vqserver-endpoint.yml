@@ -25,7 +25,7 @@ spring:
 #    password :
 
   jackson.serialization.indent_output: true
-  oauth2.resource.userInfoUri: ${vcap.services.vqserver-auth.credentials.uri/uaa/user:http://localhost:9999/uaa/user}
+  oauth2.resource.userInfoUri: ${vcap.services.vqserver-auth.credentials.uri:http://localhost:9999}/uaa/user
 eureka:
   instance:
     hostname: ${APPLICATION_DOMAIN}
