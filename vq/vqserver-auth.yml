@@ -1,15 +1,11 @@
-#debug:
-spring:
-  application:
-    name: vqserver-auth
-
-  profiles: cloud
-
-  jackson.serialization.indent_output: true
-
 server:
   port: ${vcap.application.port:9999}
   contextPath: /uaa
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.vqserver-eureka.credentials.uri:http://127.0.0.1:8761}/eureka/
 
 security:
   user:
@@ -20,3 +16,13 @@ logging:
     org: WARN
 #    springframework:
 #      security: DEBUG
+
+
+spring:
+  profiles: cloud
+  jackson.serialization.indent_output: true
+
+eureka:
+  instance:
+    hostname: ${APPLICATION_DOMAIN}
+    nonSecurePort: 80

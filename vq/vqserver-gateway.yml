@@ -1,4 +1,3 @@
-#debug:
 security:
   user:
     password: password
@@ -10,10 +9,19 @@ zuul:
     user:
       path: /user/**
       url: ${vcap.services.vqserver-auth.credentials.uri/uaa/user:http://localhost:9999/uaa/user}
-spring:
-  application:
-    name: vqserver-gateway
 
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.vqserver-eureka.credentials.uri:http://127.0.0.1:8761}/eureka/
+
+logging:
+  level:
+    org: WARN
+#    org.springframework.security: DEBUG
+#    org.springframework.web: DEBUG
+
+spring:
   profiles: cloud
   oauth2:
     sso:
@@ -27,9 +35,7 @@ spring:
       clientSecret: acmesecret
     resource:
       userInfoUri: ${vcap.services.vqserver-auth.credentials.uri/uaa/user:http://localhost:9999/uaa/user}
-
-logging:
-  level:
-    org: WARN
-#    org.springframework.security: DEBUG
-#    org.springframework.web: DEBUG
+eureka:
+  instance:
+    hostname: ${APPLICATION_DOMAIN}
+    nonSecurePort: 80
