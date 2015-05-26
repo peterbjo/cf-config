@@ -16,6 +16,9 @@ eureka:
   client:
     serviceUrl:
       defaultZone: ${vcap.services.vqserver-eureka.credentials.uri:http://127.0.0.1:8761}/eureka/
+  instance:
+    hostname: ${APPLICATION_DOMAIN}
+    nonSecurePort: 80
 
 logging:
   level:
@@ -37,7 +40,3 @@ spring:
       clientSecret: acmesecret
     resource:
       userInfoUri: ${vcap.services.vqserver-auth.credentials.uri:http://localhost:9999}/uaa/user
-eureka:
-  instance:
-    hostname: ${APPLICATION_DOMAIN}
-    nonSecurePort: 80

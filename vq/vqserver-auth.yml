@@ -6,6 +6,9 @@ eureka:
   client:
     serviceUrl:
       defaultZone: ${vcap.services.vqserver-eureka.credentials.uri:http://127.0.0.1:8761}/eureka/
+    instance:
+      hostname: ${APPLICATION_DOMAIN}
+      nonSecurePort: 80
 
 security:
   user:
@@ -21,8 +24,3 @@ logging:
 spring:
   profiles: cloud
   jackson.serialization.indent_output: true
-
-eureka:
-  instance:
-    hostname: ${APPLICATION_DOMAIN}
-    nonSecurePort: 80
