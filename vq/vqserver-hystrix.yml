@@ -1,0 +1,12 @@
+server:
+  port: ${vcap.application.port:7980}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${vcap.services.vqserver-eureka.credentials.uri:http://127.0.0.1:8761}/eureka/
+  instance:
+    hostname: ${APPLICATION_DOMAIN}
+    nonSecurePort: 80
+spring:
+  profiles: cloud
