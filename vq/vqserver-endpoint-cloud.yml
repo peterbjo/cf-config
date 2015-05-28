@@ -23,9 +23,9 @@ spring:
   profiles: cloud
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/vq
-    username: root
-    password :
+#    url: jdbc:mysql://localhost:3306/vq
+#    username: root
+#    password :
 
   jackson.serialization.indent_output: true
   oauth2.resource.userInfoUri: ${vcap.services.vqserver-auth.credentials.uri:http://localhost:9999}/uaa/user
